@@ -18,6 +18,7 @@ func TestCommandPackageStandards(t *testing.T) {
 		"m/internal/app/commands/badalias",
 		"m/internal/app/commands/noconst",
 		"m/internal/app/commands/nocmd",
+		"m/internal/app/commands/examples",
 	)
 }
 

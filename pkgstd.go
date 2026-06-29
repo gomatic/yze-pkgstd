@@ -31,13 +31,31 @@ var Registration = goyze.Registration{
 }
 
 // run checks command packages for the per-package layout standards.
+//
+// The checks concern a command package's source code, so run skips the two
+// scaffolding passes the driver synthesizes for a package that has tests — the
+// external test package (clause "<pkg>_test") and the test-main package (import
+// path "<pkg>.test") — neither of which carries the command source, so each
+// would falsely trip the missing-entry-point check. The remaining pass(es) hold
+// the command source; the driver collapses their identical diagnostics, so the
+// checks run once. Skipping the scaffolding also guarantees a non-empty
+// pass.Files (the test-only directory whose sole files are external tests yields
+// an empty "<pkg>_test" pass), so checkCommandFunc never indexes an empty slice.
 func run(pass *analysis.Pass) (any, error) {
-	if isCommandPackage(pass.Pkg.Path()) {
-		checkConstFirst(pass)
-		checkCommandFunc(pass)
-		checkDomainAlias(pass)
+	if isScaffoldingPackage(pass) || !isCommandPackage(pass.Pkg.Path()) || len(pass.Files) == 0 {
+		return nil, nil
 	}
+	checkConstFirst(pass)
+	checkCommandFunc(pass)
+	checkDomainAlias(pass)
 	return nil, nil
+}
+
+// isScaffoldingPackage reports whether pass is a driver-synthesized test
+// package rather than a real package: an external test package (clause
+// "<pkg>_test") or the test-main package (import path "<pkg>.test").
+func isScaffoldingPackage(pass *analysis.Pass) bool {
+	return strings.HasSuffix(pass.Pkg.Name(), "_test") || strings.HasSuffix(pass.Pkg.Path(), ".test")
 }
 
 // isCommandPackage reports whether a package path is a command package.
