@@ -3,9 +3,10 @@ package pkgstd_test
 import (
 	"testing"
 
-	pkgstd "github.com/gomatic/yze-go-pkgstd"
 	"github.com/stretchr/testify/assert"
 	"golang.org/x/tools/go/analysis/analysistest"
+
+	pkgstd "github.com/gomatic/yze-pkgstd"
 )
 
 func TestCommandPackageStandards(t *testing.T) {
@@ -21,6 +22,6 @@ func TestCommandPackageStandards(t *testing.T) {
 
 func TestRegistrationIsWellFormed(t *testing.T) {
 	assert.NoError(t, pkgstd.Registration.Validate())
-	assert.Equal(t, "yze/go/pkgstd", pkgstd.Registration.RuleID())
+	assert.Equal(t, "yze/pkgstd", pkgstd.Registration.RuleID())
 	assert.Same(t, pkgstd.Analyzer, pkgstd.Registration.Analyzer)
 }

@@ -3,8 +3,9 @@
 package main
 
 import (
-	pkgstd "github.com/gomatic/yze-go-pkgstd"
 	"golang.org/x/tools/go/analysis/singlechecker"
+
+	pkgstd "github.com/gomatic/yze-pkgstd"
 )
 
 // run is the analysis entry point, indirected so the binary's wiring is testable

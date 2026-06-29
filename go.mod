@@ -1,9 +1,9 @@
-module github.com/gomatic/yze-go-pkgstd
+module github.com/gomatic/yze-pkgstd
 
 go 1.26.4
 
 require (
-	github.com/gomatic/go-yze v0.1.0
+	github.com/gomatic/go-yze v0.3.0
 	github.com/stretchr/testify v1.11.1
 	golang.org/x/tools v0.47.0
 )

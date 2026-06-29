@@ -3,10 +3,11 @@ package main
 import (
 	"testing"
 
-	pkgstd "github.com/gomatic/yze-go-pkgstd"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"golang.org/x/tools/go/analysis"
+
+	pkgstd "github.com/gomatic/yze-pkgstd"
 )
 
 func TestMainRunsTheAnalyzer(t *testing.T) {
