@@ -1,11 +1,11 @@
-// Command yze-pkgstd runs the pkgstd analyzer as a standalone go/analysis
+// Command yze-go-pkgstd runs the pkgstd analyzer as a standalone go/analysis
 // checker (text and -json output, and as a `go vet -vettool`).
 package main
 
 import (
 	"golang.org/x/tools/go/analysis/singlechecker"
 
-	pkgstd "github.com/gomatic/yze-pkgstd"
+	pkgstd "github.com/gomatic/yze-go-pkgstd"
 )
 
 // run is the analysis entry point, indirected so the binary's wiring is testable

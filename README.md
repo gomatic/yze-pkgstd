@@ -1,4 +1,4 @@
-# yze-pkgstd
+# yze-go-pkgstd
 
 A [`yze`](https://github.com/gomatic/yze) analyzer (category `structure`) enforcing the **per-package** standards of the gomatic three-tier CLI layout. For a command package (`internal/app/commands/<cmd>/`) it checks:
 
@@ -10,6 +10,6 @@ Cross-package correspondence (every command has a matching `internal/domain/<cmd
 
 - **Rule:** `yze/pkgstd`
 - **Library:** exports `Analyzer` and `Registration` for the [`yze`](https://github.com/gomatic/yze) aggregator and [`stickler`](https://github.com/gomatic/stickler) runner.
-- **Binary:** `cmd/yze-pkgstd` runs it standalone (`text`/`-json`, and as a `go vet -vettool`).
+- **Binary:** `cmd/yze-go-pkgstd` runs it standalone (`text`/`-json`, and as a `go vet -vettool`).
 
 Built on the [`go-yze`](https://github.com/gomatic/go-yze) framework.

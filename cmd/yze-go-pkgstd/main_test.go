@@ -7,7 +7,7 @@ import (
 	"github.com/stretchr/testify/require"
 	"golang.org/x/tools/go/analysis"
 
-	pkgstd "github.com/gomatic/yze-pkgstd"
+	pkgstd "github.com/gomatic/yze-go-pkgstd"
 )
 
 func TestMainRunsTheAnalyzer(t *testing.T) {

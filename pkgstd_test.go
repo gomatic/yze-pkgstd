@@ -6,7 +6,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"golang.org/x/tools/go/analysis/analysistest"
 
-	pkgstd "github.com/gomatic/yze-pkgstd"
+	pkgstd "github.com/gomatic/yze-go-pkgstd"
 )
 
 func TestCommandPackageStandards(t *testing.T) {
